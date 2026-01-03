@@ -2,43 +2,35 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Route Department</title>
 <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-<h1>🚌 Route Department</h1>
-<p>Welcome to the Route Department system.</p>
+<header>
+<div class="hamburger" onclick="toggleMenu()">☰</div>
+<nav id="menu">
+<a href="index.html">🏠 Home</a>
+<a href="routes.html">📋 Route Requests</a>
+<a href="quota.html">🧾 Quota Logger</a>
+</nav>
+</header>
 
-<div class="buttons">
-<a href="quota.html" class="btn">📊 Quota Logger</a>
-</div>
+<main>
+<h1>🚌 Route Department</h1>
+<p>Welcome to the Route Department System — manage and log routes efficiently!</p>
+</main>
 
 <footer>
 Made by Elian — Route Executive Director
 </footer>
 
-</body>
-</html>
-<!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="UTF-8">
-<title>Route Department</title>
-<link rel="stylesheet" href="style.css">
-</head>
-<body>
-
-<h1>🚌 Route Department</h1>
-<p>Welcome to the Route Department system.</p>
-
-<div class="buttons">
-<a href="quota.html" class="btn">📊 Quota Logger</a>
-</div>
-
-<footer>
-Made by Elian — Route Executive Director
-</footer>
-
+<script>
+function toggleMenu() {
+const menu = document.getElementById('menu');
+menu.classList.toggle('open');
+}
+</script>
 </body>
 </html>
