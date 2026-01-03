@@ -2,37 +2,51 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Quota Logger</title>
 <link rel="stylesheet" href="style.css">
 </head>
 <body>
+  
+<header>
+<div class="hamburger" onclick="toggleMenu()">☰</div>
+<nav id="menu">
+<a href="index.html">🏠 Home</a>
+<a href="routes.html">📋 Route Requests</a>
+<a href="quota.html">🧾 Quota Logger</a>
+</nav>
+</header>
 
-<h2>📊 Quota Logger</h2>
+<main>
+<h2>🧾 Quota Logger</h2>
 
 <form id="quotaForm">
 <input type="text" id="username" placeholder="Roblox Username" required>
 <input type="text" id="route" placeholder="Route Name" required>
 
-<label>Time Logged</label>
-<select id="time" required>
-<option value="">Select time</option>
-<option>00:30</option>
-<option>01:00</option>
-<option>01:30</option>
-<option>02:00</option>
-<option>02:30</option>
-<option>03:00</option>
-<option>03:30</option>
-<option>04:00</option>
-</select>
+<!-- Open-ended Start Time -->
+<input type="text" id="startTime" placeholder="Start Time (e.g., 06:15 AM)" required>
+
+<!-- Open-ended End Time -->
+<input type="text" id="endTime" placeholder="End Time (e.g., 09:45 AM)" required>
 
 <button type="submit">Submit Quota</button>
 </form>
 
 <p id="status"></p>
 
-<a href="index.html">⬅ Back Home</a>
-
 <script src="quota.js"></script>
+</main>
+
+<footer>
+Made by Elian — Route Executive Director
+</footer>
+
+<script>
+function toggleMenu() {
+const menu = document.getElementById('menu');
+menu.classList.toggle('open');
+}
+</script>
 </body>
 </html>
