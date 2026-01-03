@@ -1,45 +1,38 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-<title>🧾 Quota Logger</title>
+<meta charset="UTF-8">
+<title>Quota Logger</title>
 <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-<div class="container">
-<h1>🧾 Quota Logger</h1>
+<h2>📊 Quota Logger</h2>
 
-<input id="discord" placeholder="Discord Username">
-<input id="roblox" placeholder="Roblox Username">
-<input id="routeType" placeholder="Route Type">
-<input id="start" placeholder="Start Time">
-<input id="end" placeholder="End Time">
+<form id="quotaForm">
+<input type="text" id="username" placeholder="Roblox Username" required>
+<input type="text" id="route" placeholder="Route Name" required>
 
-<textarea id="proof" placeholder="Proof / Notes"></textarea>
+<label>Time Logged</label>
+<select id="time" required>
+<option value="">Select time</option>
+<option>00:30</option>
+<option>01:00</option>
+<option>01:30</option>
+<option>02:00</option>
+<option>02:30</option>
+<option>03:00</option>
+<option>03:30</option>
+<option>04:00</option>
+</select>
 
-<button onclick="submitQuota()">📤 Submit Log</button>
+<button type="submit">Submit Quota</button>
+</form>
 
-<footer>Made by Elian — Route Executive Director</footer>
-</div>
+<p id="status"></p>
 
-<script>
-const QUOTA_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbzMFeJd6XFQRmiMZKEXRLYvlTLVxG6tukTruLF4av0Vz4Gi4YKlv4kwuVxmZbU8ldms/exec";
+<a href="index.html">⬅ Back Home</a>
 
-function submitQuota(){
-fetch(QUOTA_SCRIPT_URL,{
-method:"POST",
-body: JSON.stringify({
-discord: document.getElementById("discord").value,
-roblox: document.getElementById("roblox").value,
-routeType: document.getElementById("routeType").value,
-start: document.getElementById("start").value,
-end: document.getElementById("end").value,
-proof: document.getElementById("proof").value
-})
-})
-.then(()=> alert("Quota logged ✅"))
-.catch(()=> alert("Error logging quota ❌"));
-}
-</script>
+<script src="quota.js"></script>
 </body>
 </html>
