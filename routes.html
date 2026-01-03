@@ -1,65 +1,70 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-<title>📋 Route Requests</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Route Requests</title>
 <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-  <div class="nav">
-<a href="index.html">Home</a>
+<header>
+<div class="hamburger" onclick="toggleMenu()">☰</div>
+<nav id="menu">
+<a href="index.html">🏠 Home</a>
+<a href="routes.html">📋 Route Requests</a>
 <a href="quota.html">🧾 Quota Logger</a>
-</div>
-  
-<div class="container">
-<h1>📋 Route Requests</h1>
+</nav>
+</header>
 
-<input id="user" placeholder="Roblox Username">
-<input id="route" placeholder="Route Name">
-<input type="date" id="date">
+<main>
+<h2>📋 Route Requests</h2>
 
-<select id="time"></select>
-<textarea id="notes" placeholder="Notes"></textarea>
+<form id="routeForm">
+<input type="text" id="username" placeholder="Roblox Username" required>
+<input type="text" id="route" placeholder="Route Name" required>
+<input type="date" id="date" required>
+<select id="time" required>
+<option value="">Select Time</option>
+<option>06:00 AM</option>
+<option>06:30 AM</option>
+<option>07:00 AM</option>
+<option>07:30 AM</option>
+<option>08:00 AM</option>
+<option>08:30 AM</option>
+<option>09:00 AM</option>
+<option>09:30 AM</option>
+<option>10:00 AM</option>
+<option>10:30 AM</option>
+</select>
+<button type="submit">Submit Request</button>
+</form>
 
-<button onclick="submitRoute()">📤 Submit Route</button>
+<h3>Pending Requests</h3>
+<table id="pendingRequests">
+<tr>
+<th>User</th>
+<th>Route</th>
+<th>Date</th>
+<th>Time</th>
+<th>Actions</th>
+</tr>
+</table>
 
-<footer>Made by Elian — Route Executive Director</footer>
-</div>
+<p id="status"></p>
+
+<script src="routes.js"></script>
+
+</main>
+
+<footer>
+Made by Elian — Route Executive Director
+</footer>
 
 <script>
-const ROUTE_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbwql6_UkOlV7heM5UnNoyyb5JkscizXD5CpBhQ8uCUxkIRrp8ER2ktxDiWbP0cXBgCQlw/exec";
-
-/* Monthly color */
-const colors = [
-"#1e88e5","#e91e63","#4caf50","#ff9800",
-"#ffc107","#00bcd4","#f44336","#ff5722",
-"#795548","#9c27b0","#607d8b","#2ecc71"
-];
-document.documentElement.style.setProperty('--main-color', colors[new Date().getMonth()]);
-
-/* Time dropdown */
-const timeSelect = document.getElementById("time");
-for(let h=6; h<=23; h++){
-["00","30"].forEach(m=>{
-let hour = ((h+11)%12+1);
-let ampm = h<12?"AM":"PM";
-timeSelect.innerHTML += `<option>${hour}:${m} ${ampm}</option>`;
-});
-}
-
-function submitRoute(){
-fetch(ROUTE_SCRIPT_URL, {
-method: "POST",
-body: JSON.stringify({
-user: document.getElementById("user").value,
-route: document.getElementById("route").value,
-date: document.getElementById("date").value,
-time: document.getElementById("time").value,
-notes: document.getElementById("notes").value
-})
-})
-.then(()=> alert("Route submitted ✅"))
-.catch(()=> alert("Error submitting route ❌"));
+function toggleMenu() {
+const menu = document.getElementById('menu');
+menu.classList.toggle('open');
 }
 </script>
 </body>
