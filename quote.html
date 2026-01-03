@@ -4,10 +4,23 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Quota Logger</title>
-<link rel="stylesheet" href="style.css">
+<style>
+body { font-family: Arial, sans-serif; margin: 0; padding: 0; }
+header { background: #222; color: white; padding: 10px; display: flex; justify-content: space-between; align-items: center; }
+.hamburger { font-size: 24px; cursor: pointer; }
+nav a { color: white; margin: 0 10px; text-decoration: none; }
+nav.open { display: block; }
+nav { display: flex; }
+main { padding: 20px; }
+form { display: flex; flex-direction: column; max-width: 400px; }
+input { margin: 5px 0; padding: 8px; font-size: 16px; }
+button { margin-top: 10px; padding: 10px; font-size: 16px; cursor: pointer; }
+#status { margin-top: 10px; font-weight: bold; }
+footer { text-align: center; padding: 10px; background: #eee; margin-top: 20px; }
+</style>
 </head>
 <body>
-  
+
 <header>
 <div class="hamburger" onclick="toggleMenu()">☰</div>
 <nav id="menu">
@@ -23,19 +36,12 @@
 <form id="quotaForm">
 <input type="text" id="username" placeholder="Roblox Username" required>
 <input type="text" id="route" placeholder="Route Name" required>
-
-<!-- Open-ended Start Time -->
 <input type="text" id="startTime" placeholder="Start Time (e.g., 06:15 AM)" required>
-
-<!-- Open-ended End Time -->
 <input type="text" id="endTime" placeholder="End Time (e.g., 09:45 AM)" required>
-
 <button type="submit">Submit Quota</button>
 </form>
 
 <p id="status"></p>
-
-<script src="quota.js"></script>
 </main>
 
 <footer>
@@ -43,10 +49,43 @@ Made by Elian — Route Executive Director
 </footer>
 
 <script>
+// Toggle hamburger menu
 function toggleMenu() {
 const menu = document.getElementById('menu');
 menu.classList.toggle('open');
 }
+
+// Quota submission to Google Sheet
+document.getElementById("quotaForm").addEventListener("submit", async function(e) {
+e.preventDefault();
+
+const username = document.getElementById("username").value;
+const route = document.getElementById("route").value;
+const startTime = document.getElementById("startTime").value;
+const endTime = document.getElementById("endTime").value;
+
+try {
+const response = await fetch("https://script.google.com/macros/s/AKfycbwql6_UkOlV7heM5UnNoyyb5JkscizXD5CpBhQ8uCUxkIRrp8ER2ktxDiWbP0cXBgCQlw/exec", { // <-- Replace with your Google Apps Script Web App URL
+method: "POST",
+body: JSON.stringify({ username, route, startTime, endTime }),
+headers: { "Content-Type": "application/json" }
+});
+
+const result = await response.json();
+
+if(result.result === "success") {
+document.getElementById("status").innerText = "✅ Quota submitted successfully!";
+document.getElementById("quotaForm").reset();
+} else {
+document.getElementById("status").innerText = "❌ Submission failed. Try again.";
+}
+
+} catch (error) {
+console.error(error);
+document.getElementById("status").innerText = "❌ Error submitting quota.";
+}
+});
 </script>
+
 </body>
 </html>
