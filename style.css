@@ -1,46 +1,13 @@
-:root{--main-color:#1e88e5}
-
-body{
-background:linear-gradient(135deg,#020617,#0b1220);
-color:white;
-font-family:Arial;
-margin:0;
-}
-
-.container{
-max-width:900px;
-margin:auto;
-padding:20px;
-text-align:center;
-}
-
-.buttons a{
-display:inline-block;
-margin:10px;
-padding:15px 25px;
-background:var(--main-color);
-color:white;
-text-decoration:none;
-border-radius:12px;
-font-weight:bold;
-}
-
-input,select,textarea,button{
-width:100%;
-padding:10px;
-margin:6px 0;
-border-radius:10px;
-border:none;
-}
-
-button{
-background:var(--main-color);
-color:white;
-font-weight:bold;
-cursor:pointer;
-}
-
-footer{
-margin-top:40px;
-opacity:.6;
-}
+body {font-family: Arial,sans-serif;background:#f4f6f8;padding:20px;}
+header{display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;background:#3498db;padding:10px;}
+header .hamburger{font-size:24px;color:white;cursor:pointer;}
+header nav a{color:white;margin:0 10px;text-decoration:none;}
+header nav.open{display:block;}
+main{margin-top:20px;}
+input, select, button{display:block;margin:10px 0;padding:10px;width:250px;}
+button{background:#3498db;color:white;border:none;cursor:pointer;}
+button:hover{background:#2980b9;}
+table{border-collapse:collapse;width:100%;margin-top:20px;}
+table, th, td{border:1px solid #ccc;}
+th, td{padding:8px;text-align:center;}
+footer{margin-top:40px;font-size:14px;color:#555;}
