@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>📋 Route Requests</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="container">
+<h1>📋 Route Requests</h1>
+
+<input id="user" placeholder="Roblox Username">
+<input id="route" placeholder="Route Name">
+<input type="date" id="date">
+
+<select id="time"></select>
+<textarea id="notes" placeholder="Notes"></textarea>
+
+<button onclick="submitRoute()">📤 Submit Route</button>
+
+<footer>Made by Elian — Route Executive Director</footer>
+</div>
+
+<script>
+const ROUTE_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbyzD04vvZGAGdD2j99CpFR1onGXtLTcxY1zftetEyFZoyCIgKiY6mok1PlRIhTUd-A6Iw/exec";
+
+/* Monthly color */
+const colors = [
+"#1e88e5","#e91e63","#4caf50","#ff9800",
+"#ffc107","#00bcd4","#f44336","#ff5722",
+"#795548","#9c27b0","#607d8b","#2ecc71"
+];
+document.documentElement.style.setProperty('--main-color', colors[new Date().getMonth()]);
+
+/* Time dropdown */
+const timeSelect = document.getElementById("time");
+for(let h=6; h<=23; h++){
+["00","30"].forEach(m=>{
+let hour = ((h+11)%12+1);
+let ampm = h<12?"AM":"PM";
+timeSelect.innerHTML += `<option>${hour}:${m} ${ampm}</option>`;
+});
+}
+
+function submitRoute(){
+fetch(ROUTE_SCRIPT_URL, {
+method: "POST",
+body: JSON.stringify({
+user: document.getElementById("user").value,
+route: document.getElementById("route").value,
+date: document.getElementById("date").value,
+time: document.getElementById("time").value,
+notes: document.getElementById("notes").value
+})
+})
+.then(()=> alert("Route submitted ✅"))
+.catch(()=> alert("Error submitting route ❌"));
+}
+</script>
+</body>
+</html>
