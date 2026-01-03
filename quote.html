@@ -65,7 +65,7 @@ const startTime = document.getElementById("startTime").value;
 const endTime = document.getElementById("endTime").value;
 
 try {
-const response = await fetch("https://script.google.com/macros/s/AKfycbwql6_UkOlV7heM5UnNoyyb5JkscizXD5CpBhQ8uCUxkIRrp8ER2ktxDiWbP0cXBgCQlw/exec", { // <-- Replace with your Google Apps Script Web App URL
+const response = await fetch("https://script.google.com/macros/s/AKfycbzMFeJd6XFQRmiMZKEXRLYvlTLVxG6tukTruLF4av0Vz4Gi4YKlv4kwuVxmZbU8ldms/exec", { // <-- Replace with your Google Apps Script Web App URL
 method: "POST",
 body: JSON.stringify({ username, route, startTime, endTime }),
 headers: { "Content-Type": "application/json" }
