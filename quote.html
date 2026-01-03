@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>🧾 Quota Logger</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="container">
+<h1>🧾 Quota Logger</h1>
+
+<input id="discord" placeholder="Discord Username">
+<input id="roblox" placeholder="Roblox Username">
+<input id="routeType" placeholder="Route Type">
+<input id="start" placeholder="Start Time">
+<input id="end" placeholder="End Time">
+
+<textarea id="proof" placeholder="Proof / Notes"></textarea>
+
+<button onclick="submitQuota()">📤 Submit Log</button>
+
+<footer>Made by Elian — Route Executive Director</footer>
+</div>
+
+<script>
+const QUOTA_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbxAFYfymDo0lXsw3863Ap9QcrE7AtDg_4wu7nyGRH0FcU02UOuzPeKGDlj1YtINQyVr7A/exec";
+
+function submitQuota(){
+fetch(QUOTA_SCRIPT_URL,{
+method:"POST",
+body: JSON.stringify({
+discord: document.getElementById("discord").value,
+roblox: document.getElementById("roblox").value,
+routeType: document.getElementById("routeType").value,
+start: document.getElementById("start").value,
+end: document.getElementById("end").value,
+proof: document.getElementById("proof").value
+})
+})
+.then(()=> alert("Quota logged ✅"))
+.catch(()=> alert("Error logging quota ❌"));
+}
+</script>
+</body>
+</html>
