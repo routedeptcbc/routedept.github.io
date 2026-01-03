@@ -1,0 +1,46 @@
+:root{--main-color:#1e88e5}
+
+body{
+background:linear-gradient(135deg,#020617,#0b1220);
+color:white;
+font-family:Arial;
+margin:0;
+}
+
+.container{
+max-width:900px;
+margin:auto;
+padding:20px;
+text-align:center;
+}
+
+.buttons a{
+display:inline-block;
+margin:10px;
+padding:15px 25px;
+background:var(--main-color);
+color:white;
+text-decoration:none;
+border-radius:12px;
+font-weight:bold;
+}
+
+input,select,textarea,button{
+width:100%;
+padding:10px;
+margin:6px 0;
+border-radius:10px;
+border:none;
+}
+
+button{
+background:var(--main-color);
+color:white;
+font-weight:bold;
+cursor:pointer;
+}
+
+footer{
+margin-top:40px;
+opacity:.6;
+}
