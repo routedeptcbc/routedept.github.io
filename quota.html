@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Quota Logger</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header>
+<span class="hamburger" onclick="toggleMenu()">☰</span>
+<nav id="menu">
+<a href="index.html">🏠 Home</a>
+<a href="routes.html">📋 Route Requests</a>
+<a href="quota.html">🧾 Quota Logger</a>
+</nav>
+</header>
+
+<main>
+<h2>🧾 Quota Logger</h2>
+
+<form
+action="https://script.google.com/macros/s/AKfycby4dHI6thAuJk8jw0SSC2asGMmql1Jungg3U2eX0iD6HOTviq2hsdS9jdpEjtlJoNk/exec"
+method="POST"
+target="hidden_iframe"
+>
+
+<input name="roblox" placeholder="Roblox Username" required>
+<input name="route" placeholder="Route Name" required>
+
+<!-- OPEN-ENDED TIME -->
+<label>Start Time</label>
+<input type="time" name="start" required>
+
+<label>End Time</label>
+<input type="time" name="end" required>
+
+<textarea name="notes" placeholder="Proof / Notes"></textarea>
+
+<button type="submit">Submit Quota</button>
+</form>
+
+<iframe name="hidden_iframe" style="display:none;"></iframe>
+
+<p class="success">✅ Logged successfully</p>
+</main>
+
+<footer>
+Made by Elian — Route Executive Director
+</footer>
+
+<script>
+function toggleMenu(){
+document.getElementById("menu").classList.toggle("open");
+}
+</script>
+
+</body>
+</html>
