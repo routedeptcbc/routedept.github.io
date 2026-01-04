@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Route Requests</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header>
+ <span class="hamburger" onclick="toggleMenu()">☰</span>
+ <nav id="menu">
+ <a href="index.html"> Home</a>
+ <a href="routes.html"> Route Requests</a>
+ <a href="quota.html"> Quota Logger</a>
+ </nav>
+</header>
+
+<main>
+<h2> Route Request Form</h2>
+
+<form
+ action="https://script.google.com/macros/s/AKfycbwql6_UkOlV7heM5UnNoyyb5JkscizXD5CpBhQ8uCUxkIRrp8ER2ktxDiWbP0cXBgCQlw/exec"
+ method="POST"
+ target="hidden_iframe"
+>
+
+ <input name="username" placeholder="Roblox Username" required>
+ <input name="route" placeholder="Route Type" required>
+ <input type="date" name="date" required>
+ <input type="time" name="time" required>
+
+ <textarea name="notes" placeholder="Extra notes (optional)"></textarea>
+
+ <button type="submit">Submit Route Request</button>
+</form>
+
+<iframe name="hidden_iframe" style="display:none;"></iframe>
+
+<p class="success"> Submitted for approval</p>
+</main>
+
+<footer>
+ Made by Elian — Route Executive Director
+</footer>
+
+<script>
+function toggleMenu(){
+ document.getElementById("menu").classList.toggle("open");
+}
+</script>
+
+</body>
+</html>
