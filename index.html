@@ -9,7 +9,7 @@
 <body>
 
 <header>
-<div class="hamburger" onclick="toggleMenu()">☰</div>
+<span class="hamburger" onclick="toggleMenu()">☰</span>
 <nav id="menu">
 <a href="index.html">🏠 Home</a>
 <a href="routes.html">📋 Route Requests</a>
@@ -19,7 +19,7 @@
 
 <main>
 <h1>🚌 Route Department</h1>
-<p>Welcome to the Route Department System — manage and log routes efficiently!</p>
+<p>All routes require approval by the Route Executive Director.</p>
 </main>
 
 <footer>
@@ -27,10 +27,10 @@ Made by Elian — Route Executive Director
 </footer>
 
 <script>
-function toggleMenu() {
-const menu = document.getElementById('menu');
-menu.classList.toggle('open');
+function toggleMenu(){
+document.getElementById("menu").classList.toggle("open");
 }
 </script>
+
 </body>
 </html>
