@@ -23,13 +23,15 @@
 <input id="date" type="date">
 <input id="time" placeholder="Requested Time">
 
-<button onclick="sendRequest()">Submit</button>
+<button onclick="sendRequest()">Submit Request</button>
 </div>
 
 <script src="script.js"></script>
 <script>
+const ROUTE_REQUEST_URL = "https://script.google.com/macros/s/AKfycbwpMenEmPQOvnqbYqoGCWexemYwX1JJO_lFqNzi9YcCbDPvk3jI9pk7ClllJmDxuM6j/exec";
+
 function sendRequest() {
-  fetch(WEB_APP_URL + "?sheet=RouteRequests", {
+  fetch(ROUTE_REQUEST_URL, {
     method: "POST",
     body: JSON.stringify([
       new Date(),
