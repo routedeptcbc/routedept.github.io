@@ -1,5 +1,3 @@
-const WEB_APP_URL = "https://script.google.com/macros/s/AKfycbwpMenEmPQOvnqbYqoGCWexemYwX1JJO_lFqNzi9YcCbDPvk3jI9pk7ClllJmDxuM6j/exec";
-
 function toggleMenu() {
   const menu = document.getElementById("menu");
   menu.style.left = menu.style.left === "0px" ? "-220px" : "0px";
