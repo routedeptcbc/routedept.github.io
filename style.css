@@ -1,0 +1,56 @@
+:root { --main:#3b82f6; }
+
+body {
+  margin:0;
+  font-family:Arial, sans-serif;
+  background:#0f172a;
+  color:white;
+}
+
+header {
+  background:#020617;
+  padding:15px;
+}
+
+.hamburger {
+  font-size:24px;
+  cursor:pointer;
+}
+
+nav {
+  position:fixed;
+  top:0;
+  left:-220px;
+  width:200px;
+  height:100%;
+  background:#020617;
+  padding:20px;
+  transition:0.3s;
+}
+
+nav a {
+  display:block;
+  color:white;
+  text-decoration:none;
+  margin:15px 0;
+}
+
+.container {
+  max-width:450px;
+  margin:40px auto;
+  padding:20px;
+}
+
+input, textarea, button {
+  width:100%;
+  padding:10px;
+  margin:8px 0;
+  border-radius:6px;
+  border:none;
+}
+
+button {
+  background:var(--main);
+  color:white;
+  font-weight:bold;
+}
