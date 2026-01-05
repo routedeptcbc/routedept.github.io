@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Route Request</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header>
+  <div class="hamburger" onclick="toggleMenu()">☰</div>
+</header>
+
+<nav id="menu">
+  <a href="route-request.html">Route Request</a>
+  <a href="quota-log.html">Quota Log</a>
+</nav>
+
+<div class="container">
+<h2>📋 Route Request</h2>
+
+<input id="discord" placeholder="Discord Username">
+<input id="route" placeholder="Type of Route">
+<input id="date" type="date">
+<input id="time" placeholder="Requested Time">
+
+<button onclick="sendRequest()">Submit</button>
+</div>
+
+<script src="script.js"></script>
+<script>
+function sendRequest() {
+  fetch(WEB_APP_URL + "?sheet=RouteRequests", {
+    method: "POST",
+    body: JSON.stringify([
+      new Date(),
+      discord.value,
+      route.value,
+      date.value,
+      time.value
+    ])
+  }).then(() => alert("Route request sent ✅"));
+}
+</script>
+
+</body>
+</html>
